@@ -14,13 +14,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DrivableTrader<T> extends Trader<T>{
-
+    /**
+     * Construct a DrivableTrader, giving them the given inventory,
+     * wishlist, and money.
+     *
+     * @param inventory Objects in this Trader's inventory
+     * @param wishlist  Objects in this Trader's wishlist
+     * @param money     The Trader's money
+     */
     public DrivableTrader(List<T> inventory, List<T> wishlist, int money) {
         super(inventory, wishlist, money);
     }
+    /**
+     * Construct a DrivableTrader, giving them the given money + an empty inventory and wishlist.
+     *
+     * @param money     The Trader's money
+     */
     public DrivableTrader(int money){
         super(money);
     }
+
+    /**
+     * Returns the selling price of the given object if it is Tradable.
+     * If not, return Tradable.MISSING_PRICE.
+     *
+     * @param objecT object of type T to get the price and MaxSpeed of
+     * @return The sum of the price and the MaxSpeed if it is Drivable, or Tradable.MISSING_PRICE if it is not.
+     */
     @Override
     public int getSellingPrice(T objecT){
         if (objecT instanceof Tradable){
